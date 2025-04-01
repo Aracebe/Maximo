@@ -1,50 +1,50 @@
+// Remover a lógica de simulação de envio de formulário.
+// O restante do script (menu mobile, lightbox, ano do footer) permanece o mesmo.
+
 document.addEventListener('DOMContentLoaded', () => {
     // === Mobile Menu Logic ===
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
-    const body = document.body; // Get body inside DOMContentLoaded
+    const body = document.body;
 
-    // Check if essential elements exist before proceeding
-    if (!menuToggle || !navLinks) {
+    if (menuToggle && navLinks) {
+        const navLinkItems = navLinks.querySelectorAll('.nav-link');
+
+        const closeMenu = () => {
+          if (navLinks.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('active');
+            body.style.overflow = '';
+          }
+        };
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isActive = navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active', isActive);
+            menuToggle.setAttribute('aria-expanded', isActive);
+            body.style.overflow = isActive ? 'hidden' : '';
+        });
+
+        navLinkItems.forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && menuToggle && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    } else {
         console.error("Mobile menu elements not found!");
-        return; // Stop script execution if menu elements are missing
     }
-
-    const navLinkItems = navLinks.querySelectorAll('.nav-link');
-
-    const closeMenu = () => {
-      if (navLinks.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
-        body.style.overflow = '';
-      }
-    };
-
-    menuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isActive = navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active', isActive);
-        menuToggle.setAttribute('aria-expanded', isActive);
-        body.style.overflow = isActive ? 'hidden' : '';
-    });
-
-    navLinkItems.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', (event) => {
-        // Check if navLinks exists before accessing its properties
-        if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && menuToggle && !menuToggle.contains(event.target)) {
-            closeMenu();
-        }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && navLinks.classList.contains('active')) {
-            closeMenu();
-        }
-    });
 
     // === Footer Year Update ===
     const currentYearSpan = document.getElementById('current-year');
@@ -61,8 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
 
-    // Check if lightbox elements exist
-    if (lightbox && lightboxImg && lightboxCaption && lightboxClose && lightboxPrev && lightboxNext) {
+    if (lightbox && lightboxImg && lightboxCaption && lightboxClose && lightboxPrev && lightboxNext && galleryImages.length > 0) {
         let currentImageIndex;
         const imagesData = Array.from(galleryImages).map(img => ({ src: img.src, alt: img.alt }));
 
@@ -95,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
          };
 
         galleryImages.forEach((img, index) => {
-            // Ensure data-index matches the actual index for safety
             img.dataset.index = index;
             img.addEventListener('click', () => {
                 openLightbox(index);
@@ -124,33 +122,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else {
-         console.error("Lightbox elements not found!");
+         // Silently fail or log if lightbox elements are missing or no gallery images found
+         if (!lightbox || !lightboxImg || !lightboxCaption || !lightboxClose || !lightboxPrev || !lightboxNext) {
+            console.error("Lightbox elements not found!");
+         }
+         // console.log("No gallery images found for lightbox.");
     }
 
 
-    // === Form Feedback Simulation Logic ===
-    const contactForm = document.getElementById('contact-form');
-    const successMessage = document.getElementById('form-success-message');
-    const errorMessage = document.getElementById('form-error-message');
-
-    if (contactForm && successMessage && errorMessage) {
-        contactForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            console.log('Form submitted (simulation)');
-            // Simulate success
-            setTimeout(() => {
-                successMessage.style.display = 'block';
-                // contactForm.reset(); // Optional: Clear form on success
-            }, 500);
-            // Simulate error (for testing):
-            // setTimeout(() => {
-            //     errorMessage.style.display = 'block';
-            // }, 500);
-        });
-    } else {
-         console.error("Contact form elements not found!");
-    }
+    // === Form Feedback Simulation Logic REMOVED ===
+    // const contactForm = document.getElementById('contact-form');
+    // const successMessage = document.getElementById('form-success-message');
+    // const errorMessage = document.getElementById('form-error-message');
+    // if (contactForm) {
+    //     contactForm.addEventListener('submit', (event) => {
+    //         // event.preventDefault(); // REMOVIDO - Deixar o form ser enviado para o FormSubmit
+    //         // Lógica de simulação removida
+    //     });
+    // }
 
 }); // End of DOMContentLoaded

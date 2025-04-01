@@ -1,8 +1,10 @@
 /* === Reset Básico & Configurações Globais === */
 :root {
-    --primary-color: #1B5E20; /* Verde mais escuro e sóbrio */
-    --secondary-color: #4CAF50; /* Verde médio para detalhes */
-    --accent-color: #FFB74D; /* Laranja suave para CTAs */
+    /* === CORES ATUALIZADAS === */
+    --primary-color: #41605D;   /* Verde Principal Atualizado */
+    --secondary-color: #719260; /* Verde Secundário Atualizado */
+    /* ------------------------- */
+    --accent-color: #FFB74D; /* Laranja suave para CTAs (Pode manter ou ajustar se desejar) */
     --text-color: #37474F; /* Cinza azulado escuro para texto */
     --light-gray: #ECEFF1; /* Cinza bem claro para fundos */
     --white-color: #ffffff;
@@ -48,13 +50,13 @@ p { margin-bottom: 1.2rem; color: var(--dark-gray); }
 ul { list-style: none; }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 25px; }
 section { padding: 100px 0; overflow: hidden; }
-section:nth-child(even) { background-color: var(--light-gray); }
-#hero { background-color: transparent; }
-#why-choose-us { background-color: var(--primary-color); color: var(--white-color); }
+section:nth-child(even) { background-color: var(--light-gray); } /* Seções pares continuam cinza claro */
+#hero { background-color: transparent; } /* Hero tem imagem de fundo */
+#why-choose-us { background-color: var(--primary-color); color: var(--white-color); } /* Seção 'Why Choose Us' usa cor primária */
 #why-choose-us h2, #why-choose-us .section-subtitle { color: var(--white-color); }
 #why-choose-us .section-subtitle { opacity: 0.9; }
-#about, #gallery { background-color: var(--white-color); }
-#contact { background-color: var(--light-gray); }
+#about, #gallery { background-color: var(--white-color); } /* Seções About e Gallery continuam brancas */
+#contact { background-color: var(--light-gray); } /* Seção de Contato continua cinza claro */
 .btn {
     display: inline-block; padding: 14px 35px; font-size: 1rem;
     font-weight: 600; font-family: var(--font-primary); color: var(--text-color);
@@ -63,16 +65,17 @@ section:nth-child(even) { background-color: var(--light-gray); }
     text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .btn:hover {
-    background-color: #ffa726; transform: translateY(-3px);
+    background-color: #ffa726; /* Ajuste o hover do accent color se desejar */
+    transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15); color: var(--text-color);
 }
 .btn-secondary {
      background-color: var(--primary-color); color: var(--white-color);
-     box-shadow: 0 4px 10px rgba(27, 94, 32, 0.2);
+     box-shadow: 0 4px 10px rgba(65, 96, 93, 0.2); /* Sombra ajustada para nova cor primária */
 }
  .btn-secondary:hover {
      background-color: var(--secondary-color); color: var(--white-color);
-     box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+     box-shadow: 0 6px 15px rgba(113, 146, 96, 0.3); /* Sombra ajustada para nova cor secundária */
  }
 
 /* === Header / Navbar === */
@@ -82,7 +85,17 @@ section:nth-child(even) { background-color: var(--light-gray); }
     display: flex; align-items: center;
 }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; width: 100%; position: relative; }
-.logo { font-family: var(--font-primary); font-size: 2rem; font-weight: 700; color: var(--primary-color); letter-spacing: -1px; }
+
+/* Estilo para a imagem da logo */
+.logo-img {
+    height: 50px; /* Ajuste a altura conforme necessário */
+    width: auto;
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Remover estilo de texto da logo antiga se houver */
+/* .logo { font-family: var(--font-primary); font-size: 2rem; ... } */
+
 .nav-links { display: flex; gap: 35px; position: static; transform: none; background: none; box-shadow: none; padding: 0; flex-direction: row; height: auto; width: auto; overflow-y: visible; }
 .nav-links a { font-family: var(--font-primary); font-weight: 500; font-size: 0.95rem; color: var(--dark-gray); padding-bottom: 5px; position: relative; transition: color 0.3s ease; display: inline-block; border-bottom: none; }
 .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--secondary-color); transition: width 0.4s ease; }
@@ -97,7 +110,9 @@ section:nth-child(even) { background-color: var(--light-gray); }
 
 /* === Hero Section === */
 #hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://picsum.photos/seed/maximohero2/1920/1080') center center/cover no-repeat;
+    /* === IMAGEM DE FUNDO ATUALIZADA === */
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://github.com/Aracebe/Maximo/blob/main/photo01.jpg?raw=true') center center/cover no-repeat;
+    /* ---------------------------------- */
     min-height: calc(80vh - var(--header-height)); display: flex; align-items: center; justify-content: center;
     text-align: center; color: var(--white-color); padding: 60px 25px;
 }
@@ -142,86 +157,35 @@ section:nth-child(even) { background-color: var(--light-gray); }
 .gallery-item img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease, box-shadow 0.4s ease; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0, 0.08); }
 .gallery-item img:hover { transform: scale(1.04); opacity: 0.9; box-shadow: 0 8px 25px rgba(0,0,0, 0.15); }
 
-/* === Lightbox Styles (Centering Updated) === */
+/* === Lightbox Styles === */
 .lightbox {
-    position: fixed;
-    z-index: 1100;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.85);
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-    display: flex; /* Use flex for centering */
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    visibility: hidden; /* Use visibility for transition */
+    position: fixed; z-index: 1100; left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto; background-color: rgba(0,0,0,0.85); opacity: 0;
+    transition: opacity 0.4s ease-in-out; display: flex; align-items: center;
+    justify-content: center; padding: 10px; visibility: hidden;
 }
-.lightbox.active {
-    opacity: 1;
-    visibility: visible; /* Make visible when active */
-}
-
+.lightbox.active { opacity: 1; visibility: visible; }
 .lightbox-content {
-    display: block;
-    max-width: 90%;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    animation-name: zoom;
-    animation-duration: 0.5s;
-    object-fit: contain;
+    display: block; max-width: 90%; max-height: 85vh; width: auto; height: auto;
+    animation-name: zoom; animation-duration: 0.5s; object-fit: contain;
 }
- @keyframes zoom { from {transform: scale(0)} to {transform: scale(1)} }
-
+@keyframes zoom { from {transform: scale(0)} to {transform: scale(1)} }
 .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    line-height: 1;
-    z-index: 1110;
+    position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px;
+    font-weight: bold; transition: 0.3s; cursor: pointer; line-height: 1; z-index: 1110;
 }
 .lightbox-close:hover, .lightbox-close:focus { color: #bbb; text-decoration: none; }
-
 .lightbox-prev, .lightbox-next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: auto;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 25px;
-    transition: 0.4s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 1105;
+    cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); width: auto;
+    padding: 16px; color: white; font-weight: bold; font-size: 25px; transition: 0.4s ease;
+    user-select: none; -webkit-user-select: none; background-color: rgba(0,0,0,0.3); z-index: 1105;
 }
 .lightbox-next { right: 10px; border-radius: 3px 0 0 3px; }
-.lightbox-prev { left: 10px; border-radius: 0 3px 3px 0; } /* Corrigido border-radius */
+.lightbox-prev { left: 10px; border-radius: 0 3px 3px 0; }
 .lightbox-prev:hover, .lightbox-next:hover { background-color: rgba(0,0,0,0.6); }
-
 #lightbox-caption {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    font-size: 0.9rem;
-    z-index: 1105;
+    position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); width: 80%;
+    max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; font-size: 0.9rem; z-index: 1105;
 }
 
 /* === Contact Section === */
@@ -231,6 +195,9 @@ section:nth-child(even) { background-color: var(--light-gray); }
 .contact-form h3, .contact-info h3 { font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--primary-color); font-weight: 600; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
 .form-group { margin-bottom: 20px; }
+/* Tornar a coluna da mensagem ocupar todo o espaço */
+.form-group.full-width { grid-column: 1 / -1; }
+
 .contact-form label { display: block; margin-bottom: 6px; font-weight: 500; font-size: 0.9rem; color: var(--dark-gray); font-family: var(--font-secondary); }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
@@ -241,23 +208,18 @@ section:nth-child(even) { background-color: var(--light-gray); }
     font-size: 0.95rem; font-family: var(--font-secondary); background-color: var(--white-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--secondary-color); box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+    outline: none; border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(113, 146, 96, 0.2); /* Sombra ajustada para cor secundária */
+}
 .contact-form textarea { resize: vertical; min-height: 120px; }
 .contact-form select { appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23546E7A' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; background-size: 16px 12px; cursor: pointer; }
 .contact-form .btn { margin-top: 10px; }
 
-/* Form Feedback Messages Styling */
-.form-message {
-    margin-top: 15px;
-    padding: 12px 15px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    border: 1px solid transparent;
-    display: none; /* Hidden by default */
-}
+/* Estilos de Mensagem de Feedback (NÃO serão mais usados pelo JS, mas podem ser úteis se mudar a estratégia) */
+.form-message { margin-top: 15px; padding: 12px 15px; border-radius: 6px; font-size: 0.95rem; border: 1px solid transparent; display: none; }
 .form-message.success { background-color: #d1e7dd; color: #0f5132; border-color: #badbcc; }
 .form-message.error { background-color: #f8d7da; color: #842029; border-color: #f5c2c7; }
-/* End Form Feedback */
 
 .contact-info { padding-top: 5px; }
 .contact-info p { margin-bottom: 20px; font-size: 1rem; display: flex; align-items: flex-start; gap: 15px; color: var(--dark-gray); line-height: 1.6; }
@@ -281,8 +243,8 @@ footer a:hover { color: var(--white-color); }
     .features-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
     .contact-content { grid-template-columns: 1fr; gap: 50px; }
     .contact-info { margin-top: 0; padding-top: 0; }
-    .form-grid { grid-template-columns: 1fr; gap: 0; }
-    .form-grid .form-group { margin-bottom: 20px; }
+    .form-grid { grid-template-columns: 1fr; gap: 0; } /* Coluna única no form */
+    .form-group { margin-bottom: 20px; } /* Ajuste margem para coluna única */
 }
 @media (max-width: 768px) {
     html { font-size: 15px; }
@@ -291,8 +253,10 @@ footer a:hover { color: var(--white-color); }
     h2 { font-size: 1.8rem; } .section-subtitle { font-size: 1rem; margin-bottom: 2.5rem; }
     section { padding: 80px 0; }
     .navbar .container { padding: 0 20px; }
-    .logo { position: absolute; left: 50%; transform: translateX(-50%); font-size: 1.8rem; }
-    .menu-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+    /* Logo centralizada no mobile */
+    .logo { position: absolute; left: 50%; transform: translateX(-50%); }
+    .logo-img { height: 45px; } /* Logo um pouco menor no mobile */
+    .menu-toggle { display: block; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1010; /* Garantir que fique sobre a logo se centralizada */ }
     .nav-links { display: none; flex-direction: column; position: fixed; top: var(--header-height); left: 0; width: 100%; height: calc(100vh - var(--header-height)); background-color: var(--white-color); box-shadow: 0 5px 15px rgba(0,0,0,0.1); padding: 20px 0; gap: 0; transform: translateX(100%); transition: transform 0.4s ease-in-out; opacity: 1; z-index: 999; overflow-y: auto; }
     .nav-links.active { display: flex; transform: translateX(0); }
     .nav-links li { width: 100%; }
@@ -314,7 +278,7 @@ footer a:hover { color: var(--white-color); }
     .contact-info { text-align: left; }
     .contact-info p { justify-content: flex-start; text-align: left; flex-direction: row; align-items: flex-start; }
     .contact-info p .icon-contact { margin-top: 3px; }
-    .form-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; } /* Já definido em 1024px */
     .btn { padding: 12px 30px; font-size: 0.95rem; }
 
     /* Lightbox Mobile Adjustments */
@@ -329,10 +293,11 @@ footer a:hover { color: var(--white-color); }
     h1 { font-size: 1.8rem; } #hero h1 { font-size: 2.2rem; } #hero p { font-size: 1rem; }
     h2 { font-size: 1.6rem; }
     .container { padding: 0 20px; }
-    .navbar .container { padding: 0 15px; } .logo { font-size: 1.6rem; }
+    .navbar .container { padding: 0 15px; }
+    .logo-img { height: 40px; } /* Logo ainda menor */
     .menu-toggle { right: 15px; } section { padding: 60px 0; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item img { height: 200px; }
-    .btn { width: 100%; font-size: 1rem; }
+    .btn { width: 100%; font-size: 1rem; } /* Botão ocupa largura total */
     .contact-form .btn { margin-top: 15px; }
 }

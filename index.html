@@ -25,15 +25,17 @@
       "name": "Máximo Podas e Limpeza",
       "description": "Especialistas em podas técnicas, limpeza completa de terrenos e remoção segura de árvores.",
       "telephone": "+5500999998888", // <-- SEU TELEFONE REAL
-      "email": "contato@maximoservicos.com.br", // <-- SEU EMAIL REAL
+      "email": "euterpeanhum@gmail.com", // <-- SEU EMAIL REAL (ATUALIZADO)
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Amparo", // <-- CONFIRMAR CIDADE REAL
         "addressRegion": "SP", // <-- SEU ESTADO REAL
         "addressCountry": "BR"
       },
-      "image": "https://picsum.photos/seed/maximohero2/1920/1080", // Use a URL da sua logo ou imagem principal REAL
-      "url": "URL_DO_SEU_SITE", // <-- URL REAL DO SEU SITE
+      // ATUALIZADO: Imagem principal para o Schema (Hero Image)
+      "image": "https://github.com/Aracebe/Maximo/blob/main/photo01.jpg?raw=true",
+      "url": "URL_DO_SEU_SITE", // <-- URL REAL DO SEU SITE (se tiver)
+      "logo": "https://github.com/Aracebe/Maximo/blob/main/logo.png?raw=true", // ATUALIZADO: Logo
       "priceRange": "$$", // Opcional: Indique a faixa de preço ($, $$, $$$)
       "openingHoursSpecification": [
         {
@@ -59,7 +61,10 @@
     <!-- === Header === -->
     <header class="navbar">
         <div class="container">
-            <a href="#hero" class="logo">Máximo</a>
+            <!-- LOGO ATUALIZADA -->
+            <a href="#hero" class="logo">
+                <img src="https://github.com/Aracebe/Maximo/blob/main/logo.png?raw=true" alt="Máximo Podas e Limpeza Logo" class="logo-img">
+            </a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
                 <div class="hamburger-icon"><span></span><span></span><span></span></div>
             </button>
@@ -140,7 +145,6 @@
                 <h2>Nossos Diferenciais</h2>
                  <p class="section-subtitle">Entenda por que somos a escolha certa para o seu projeto.</p>
                 <div class="features-grid">
-                    <!-- Emojis Reintroduzidos -->
                     <div class="feature-item">
                         <div class="icon">⭐</div>
                         <h3>Qualificação</h3>
@@ -187,6 +191,7 @@
                     <div class="gallery-item"><img src="https://picsum.photos/seed/galeria10/400/300" alt="Close-up de corte preciso em galho de árvore" loading="lazy" decoding="async" width="400" height="300" data-index="3"></div>
                     <div class="gallery-item"><img src="https://picsum.photos/seed/galeria11/400/300" alt="Profissional utilizando equipamento de segurança durante poda" loading="lazy" decoding="async" width="400" height="300" data-index="4"></div>
                     <div class="gallery-item"><img src="https://picsum.photos/seed/galeria12/400/300" alt="Paisagem com árvores e terreno limpo após serviço" loading="lazy" decoding="async" width="400" height="300" data-index="5"></div>
+                    <!-- Adicione mais imagens aqui se necessário -->
                 </div>
             </div>
         </section>
@@ -199,23 +204,30 @@
                 <div class="contact-content">
                     <div class="contact-form">
                         <h3>Envie sua Mensagem</h3>
-                        <form id="contact-form" action="#" method="POST">
+                        <!-- FORMULÁRIO CONFIGURADO PARA FORMSUBMIT.CO -->
+                        <form id="contact-form" action="https://formsubmit.co/euterpeanhum@gmail.com" method="POST">
+                            <!-- Configurações Opcionais do FormSubmit -->
+                            <input type="hidden" name="_subject" value="Novo Contato - Site Máximo Podas!"> <!-- Assunto do E-mail -->
+                            <input type="hidden" name="_captcha" value="false"> <!-- Desativar CAPTCHA (RECOMENDADO ATIVAR DEPOIS) -->
+                            <input type="hidden" name="_next" value="URL_DA_SUA_PAGINA_DE_OBRIGADO.html"> <!-- Redireciona após envio (ex: thankyou.html) -->
+                            <input type="hidden" name="_template" value="table"> <!-- Formata o e-mail recebido como tabela -->
+
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="name">Nome Completo:</label>
-                                    <input type="text" id="name" name="name" required placeholder="Seu nome aqui">
+                                    <input type="text" id="name" name="Nome" required placeholder="Seu nome aqui"> <!-- Mudado name="name" para name="Nome" -->
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-mail:</label>
-                                    <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                                    <input type="email" id="email" name="Email" required placeholder="seu.email@exemplo.com"> <!-- Mudado name="email" para name="Email" -->
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Telefone / WhatsApp:</label>
-                                    <input type="tel" id="phone" name="phone" required placeholder="(XX) 9XXXX-XXXX">
+                                    <input type="tel" id="phone" name="Telefone" required placeholder="(XX) 9XXXX-XXXX"> <!-- Mudado name="phone" para name="Telefone" -->
                                 </div>
                                  <div class="form-group">
                                     <label for="service">Serviço Desejado:</label>
-                                    <select id="service" name="service" required>
+                                    <select id="service" name="Serviço" required> <!-- Mudado name="service" para name="Serviço" -->
                                         <option value="" disabled selected>Selecione o serviço...</option>
                                         <option value="poda">Poda de Árvores</option>
                                         <option value="limpeza">Limpeza de Terreno</option>
@@ -227,11 +239,13 @@
                             </div>
                             <div class="form-group full-width">
                                 <label for="message">Mensagem:</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Descreva brevemente sua necessidade ou dúvida..."></textarea>
+                                <textarea id="message" name="Mensagem" rows="5" required placeholder="Descreva brevemente sua necessidade ou dúvida..."></textarea> <!-- Mudado name="message" para name="Mensagem" -->
                             </div>
                             <button type="submit" class="btn btn-secondary">Enviar Solicitação Agora</button>
-                            <div id="form-success-message" class="form-message success">Mensagem enviada com sucesso! Entraremos em contato em breve.</div>
-                            <div id="form-error-message" class="form-message error">Ocorreu um erro ao enviar. Por favor, tente novamente ou use nossos contatos diretos.</div>
+
+                            <!-- As mensagens de sucesso/erro do JS foram removidas, pois o FormSubmit redireciona -->
+                            <!-- <div id="form-success-message" class="form-message success">...</div> -->
+                            <!-- <div id="form-error-message" class="form-message error">...</div> -->
                         </form>
                     </div>
                     <div class="contact-info">
@@ -243,7 +257,7 @@
                         </p>
                          <p>
                             <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-                            <span><a href="mailto:contato@maximoservicos.com.br">contato@maximoservicos.com.br</a></span> <!-- AJUSTAR EMAIL REAL -->
+                            <span><a href="mailto:euterpeanhum@gmail.com">euterpeanhum@gmail.com</a></span> <!-- EMAIL ATUALIZADO -->
                         </p>
                          <p>
                             <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
