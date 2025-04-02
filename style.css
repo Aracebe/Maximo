@@ -196,7 +196,7 @@ footer .copyright { font-size: 0.9rem; margin-top: 15px; color: #aaa; }
     /* Altura Banner Tablet aumentada em 15% (conforme solicitado anteriormente) */
     .hero { padding: 79px 0 79px; }
     .hero h1 { font-size: 1.6rem; }
-    .gallery-item a { cursor: default; }
+    .gallery-item a { cursor: default; } /* Remove cursor pointer on mobile for lightbox */
     /* Slider Tablet */
     .testimonial-slider-container { max-width: 90%; }
     .testimonial-slide { padding: 30px 40px; }

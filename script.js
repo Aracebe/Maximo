@@ -14,7 +14,24 @@ if (menuToggle && mainNav) {
     });
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (mainNav.classList.contains('is-active')) {
+            // Smooth scroll for internal links
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close menu before scrolling
+                    if (mainNav.classList.contains('is-active')) {
+                         mainNav.classList.remove('is-active');
+                         menuToggle.classList.remove('is-active');
+                         menuToggle.setAttribute('aria-expanded', 'false');
+                         menuToggle.setAttribute('aria-label', 'Abrir menu');
+                    }
+                    // Optional: add slight delay for menu closing animation if needed
+                    // setTimeout(() => {
+                    //     targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // }, 100); // Example delay
+                }
+            } else if (mainNav.classList.contains('is-active')) { // Close for external links too
                  mainNav.classList.remove('is-active');
                  menuToggle.classList.remove('is-active');
                  menuToggle.setAttribute('aria-expanded', 'false');
@@ -30,34 +47,45 @@ const lightboxImage = document.getElementById('lightbox-image');
 const lightboxCloseBtn = document.getElementById('lightbox-close');
 const galleryLinks = document.querySelectorAll('a[data-lightbox="gallery-group"]');
 const bodyElement = document.body;
+let focusedLinkBeforeLightbox = null; // Variable to store the focused element
 
 function openLightbox(event) {
-    if (window.innerWidth < 769) { return; } // Não abrir lightbox em mobile/tablet
+    if (window.innerWidth < 769) { return; } // Don't open lightbox on mobile/tablet
     event.preventDefault();
+    focusedLinkBeforeLightbox = document.activeElement; // Store the currently focused element
     const imgSrc = event.currentTarget.getAttribute('href');
     const imgAlt = event.currentTarget.querySelector('img')?.getAttribute('alt') || 'Imagem da galeria';
     lightboxImage.setAttribute('src', imgSrc);
-    lightboxImage.setAttribute('alt', `Imagem ampliada: ${imgAlt}`);
+    lightboxImage.setAttribute('alt', `Imagem ampliada: ${imgAlt}`); // Set alt text for screen readers
+    document.getElementById('lightbox-image-desc').textContent = `Imagem ampliada: ${imgAlt}`; // Update hidden description
+
     lightboxOverlay.classList.add('is-active');
-    bodyElement.classList.add('lightbox-open'); // Impede scroll do body
-    lightboxCloseBtn.focus(); // Foco no botão de fechar
+    bodyElement.classList.add('lightbox-open'); // Prevent body scroll
+    lightboxCloseBtn.focus(); // Focus the close button for accessibility
 }
+
 function closeLightbox() {
     lightboxOverlay.classList.remove('is-active');
-    bodyElement.classList.remove('lightbox-open'); // Libera scroll do body
-    // Opcional: devolver o foco para o link que abriu o lightbox
-    // (requer guardar a referência do link clicado)
+    bodyElement.classList.remove('lightbox-open'); // Allow body scroll again
+    if (focusedLinkBeforeLightbox) {
+        focusedLinkBeforeLightbox.focus(); // Return focus to the element that opened the lightbox
+        focusedLinkBeforeLightbox = null; // Reset the variable
+    }
 }
+
 if(lightboxOverlay && lightboxImage && lightboxCloseBtn && galleryLinks.length > 0) {
      galleryLinks.forEach(link => { link.addEventListener('click', openLightbox); });
+
     lightboxCloseBtn.addEventListener('click', closeLightbox);
-    // Fechar clicando fora da imagem
+
+    // Close by clicking outside the image (on the overlay)
     lightboxOverlay.addEventListener('click', (event) => {
          if (event.target === lightboxOverlay) {
              closeLightbox();
          }
     });
-    // Fechar com a tecla Esc
+
+    // Close with the Esc key
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && lightboxOverlay.classList.contains('is-active')) {
             closeLightbox();
