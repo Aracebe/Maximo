@@ -3,294 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Atualizar descrição com local real quando possível -->
-    <meta name="description" content="Máximo - Especialistas em Podas e Limpeza de Terrenos. Serviços profissionais, seguros e eficientes em Amparo-SP e Região. Solicite um orçamento gratuito!">
-    <!-- Atualizar keywords com local real quando possível -->
-    <meta name="keywords" content="poda de árvores, limpeza de terrenos, jardinagem, remoção de galhos, corte de grama, paisagismo, Máximo, Amparo, Amparo-SP, região de Amparo">
-    <title>Máximo - Podas e Limpeza de Terrenos</title>
+    <meta name="description" content="Serviços profissionais de poda, limpeza de terrenos, roçagem e remoção de entulhos em Amparo-SP e região. Orçamento rápido e eficiente com a Máximo. Deixe seu terreno limpo e valorizado!">
+    <title>Máximo - Poda e Limpeza de Terrenos | Amparo-SP e Região</title>
 
-    <!-- Fontes do Google -->
+    <!-- Links para fontes externas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Otimização: Preload da imagem do banner principal -->
+    <link rel="preload" href="https://raw.githubusercontent.com/Aracebe/maximopodas/refs/heads/main/photo01.jpg" as="image">
 
     <!-- Link para o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Schema Markup JSON-LD (Preencha com seus dados REAIS!) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Máximo Podas e Limpeza",
-      "description": "Especialistas em podas técnicas, limpeza completa de terrenos e remoção segura de árvores.",
-      "telephone": "+5500999998888", // <-- SEU TELEFONE REAL
-      "email": "euterpeanhum@gmail.com", // <-- SEU EMAIL REAL (ATUALIZADO)
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Amparo", // <-- CONFIRMAR CIDADE REAL
-        "addressRegion": "SP", // <-- SEU ESTADO REAL
-        "addressCountry": "BR"
-      },
-      // ATUALIZADO: Imagem principal para o Schema (Hero Image)
-      "image": "https://github.com/Aracebe/Maximo/blob/main/photo01.jpg?raw=true",
-      "url": "URL_DO_SEU_SITE", // <-- URL REAL DO SEU SITE (se tiver)
-      "logo": "https://github.com/Aracebe/Maximo/blob/main/logo.png?raw=true", // ATUALIZADO: Logo
-      "priceRange": "$$", // Opcional: Indique a faixa de preço ($, $$, $$$)
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" ],
-          "opens": "08:00", "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "08:00", "closes": "12:00"
-        }
-      ],
-      "areaServed": {
-        "@type": "Place",
-        "name": "Amparo e Região Metropolitana" // <-- SUA ÁREA DE ATENDIMENTO REAL
-      }
-    }
-    </script>
 </head>
 <body>
 
-    <!-- === Header === -->
-    <header class="navbar">
+    <!-- Site Header -->
+    <header class="site-header">
         <div class="container">
-            <!-- LOGO ATUALIZADA -->
-            <a href="#hero" class="logo">
-                <img src="https://github.com/Aracebe/Maximo/blob/main/logo.png?raw=true" alt="Máximo Podas e Limpeza Logo" class="logo-img">
+            <a href="#home" class="site-logo">
+                <img src="https://github.com/Aracebe/Maximo/blob/main/logo.png?raw=true" alt="Máximo Logo - Poda e Limpeza de Terrenos">
             </a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
-                <div class="hamburger-icon"><span></span><span></span><span></span></div>
-            </button>
-            <nav id="main-nav">
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#hero" class="nav-link">Início</a></li>
-                    <li><a href="#services" class="nav-link">Serviços</a></li>
-                    <li><a href="#about" class="nav-link">Sobre Nós</a></li>
-                    <li><a href="#why-choose-us" class="nav-link">Diferenciais</a></li>
-                    <li><a href="#gallery" class="nav-link">Galeria</a></li>
-                    <li><a href="#contact" class="nav-link">Contato</a></li>
+            <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#contact">Contato</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>PODA E LIMPEZA DE TERRENOS</h1>
+            <p>Soluções completas para deixar seu terreno limpo, seguro e valorizado em Amparo-SP e região. Atendimento rápido e eficiente.</p>
+            <a href="https://wa.me/5519981042781?text=Ol%C3%A1%21+Gostaria+de+um+or%C3%A7amento+para+poda+e+limpeza+de+terreno." target="_blank" class="cta-button">Faça seu Orçamento!</a>
+        </div>
+    </section>
+
     <main>
-        <!-- === Hero Section === -->
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Excelência em Podas e Limpeza de Terrenos</h1>
-                <p>Valorize seu imóvel e garanta a segurança com nossos serviços profissionais de poda e limpeza em Amparo e região. Eficiência e cuidado para seu espaço verde.</p>
-                <a href="#contact" class="btn">Solicite um Orçamento Gratuito</a>
-            </div>
-        </section>
-
-        <!-- === Services Section === -->
-        <section id="services">
-            <div class="container">
-                <h2>Nossos Serviços Especializados</h2>
-                 <p class="section-subtitle">Oferecemos soluções completas para manter suas árvores saudáveis e seu terreno impecável.</p>
+        <!-- Services Section -->
+        <section id="services" class="services section-padding">
+             <div class="container">
+                <h2 class="text-center">Nossos Serviços</h2>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <img src="https://picsum.photos/seed/maximopoda2/600/440" alt="Homem podando árvore com segurança" loading="lazy" decoding="async" width="600" height="440">
-                         <div class="service-card-content">
-                            <h3>Poda Técnica de Árvores</h3>
-                            <p>Podas de segurança, formação, limpeza e revitalização, respeitando a biologia da planta e as normas vigentes.</p>
-                        </div>
-                    </div>
-                    <div class="service-card">
-                        <img src="https://picsum.photos/seed/maximolimpeza2/600/440" alt="Terreno limpo e organizado após serviço" loading="lazy" decoding="async" width="600" height="440">
-                        <div class="service-card-content">
-                            <h3>Limpeza Completa de Terrenos</h3>
-                            <p>Roçagem, capina, remoção de entulho e vegetação invasora, deixando seu terreno pronto para qualquer finalidade.</p>
-                        </div>
-                    </div>
-                     <div class="service-card">
-                        <img src="https://picsum.photos/seed/maximoremocao2/600/440" alt="Remoção controlada de árvore de grande porte" loading="lazy" decoding="async" width="600" height="440">
-                         <div class="service-card-content">
-                            <h3>Remoção e Supressão Segura</h3>
-                            <p>Corte e remoção de árvores comprometidas, doentes ou em locais inadequados, com planejamento e segurança.</p>
-                         </div>
-                    </div>
+                    <!-- Ícones SVG com viewBox e path d="..." -->
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><title>Limpeza de Terrenos</title><path d="M624 32H381.54C368.45 12.64 344.77 0 318.21 0c-44.68 0-81.94 33.32-87.62 76.49C212.91 67.51 192 86.84 192 112v24.47C180.08 132.27 167.3 128 153.6 128H16c-8.84 0-16 7.16-16 16v320c0 8.84 7.16 16 16 16h608c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16zM192 160h32v112H192V160zm128 0h32v112h-32V160zm128 0h32v112h-32V160zm-403.2 32h112v57.6H44.8V192zM16 464V288h128v176H16zm144 0V288h128v176H160zm144 0V288h128v176H304zm144 0V288h160v176H448z"/></svg></span><h3>Limpeza de Terrenos</h3><p>Removemos vegetação indesejada, mato alto, galhos e detritos.</p></div>
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><title>Remoção de Mato</title><path d="M560 64c-8.84 0-16 7.16-16 16v48H32c-17.67 0-32 14.33-32 32v192c0 17.67 14.33 32 32 32h512c17.67 0 32-14.33 32-32V160H176c-8.84 0-16-7.16-16-16s7.16-16 16-16h400V80c0-8.84-7.16-16-16-16zm0 144H48v128h512V208zM112 272c-17.67 0-32 14.33-32 32s14.33 32 32 32 32-14.33 32-32-14.33-32-32-32zm128 0c-17.67 0-32 14.33-32 32s14.33 32 32 32 32-14.33 32-32-14.33-32-32-32zm128 0c-17.67 0-32 14.33-32 32s14.33 32 32 32 32-14.33 32-32-14.33-32-32-32zM496 416H80c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"/></svg></span><h3>Remoção de Mato</h3><p>Corte e eliminação de matagal alto e denso, preparando o terreno.</p></div>
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><title>Capina</title><path d="M506 118.3c-6.7 0-12.8 3.5-16.3 9.1L465.6 176H64c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32h382.1l28.6 55.7c3.4 6.6 9.6 10.6 16.7 10.6h16.7c13.7 0 25.2-11.9 24.6-25.5l-31.8-184C512.1 122.5 499.3 118.3 506 118.3zM448 288H64v-32h384v32zM480 416h-44.8l-16-32H96l-16 32H32c-17.7 0-32 14.3-32 32v32h512v-32c0-17.7-14.3-32-32-32z"/></svg></span><h3>Capina</h3><p>Limpeza minuciosa com remoção de ervas daninhas pela raiz.</p></div>
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><title>Roçagem</title><path d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.4-.6-11.1-5.5-14zm-247.6 70.7c-66.2 0-120-53.8-120-120s53.8-120 120-120 120 53.8 120 120-53.8 120-120 120z"/></svg></span><h3>Roçagem</h3><p>Corte de grama e vegetação rasteira com roçadeira profissional.</p></div>
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><title>Retirada de Entulhos</title><path d="M432 80h-80l-32-32H128L96 80H16A16 16 0 0 0 0 96v16A16 16 0 0 0 16 128h17.6l28.7 296.1c2.7 28.4 27.6 49.9 56.2 49.9h183a57.6 57.6 0 0 0 56.2-49.9L414.4 128H432a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.6 398l-15-192h40.7l15 192h-40.7zm94.8 0h-41l15-192h40.7l-14.7 192zm94.8 0h-40.7l15-192h40.7l-15 192z"/></svg></span><h3>Retirada de Entulhos</h3><p>Coleta e descarte correto de entulhos, restos de mato e galhos.</p></div>
+                    <div class="service-item"><span class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><title>Manutenção Periódica</title><path d="M496 256c0 136.9-111.1 248-248 248S0 392.9 0 256 111.1 8 248 8s248 111.1 248 248zm-148.7 88.3l-95.8-58.4V136c0-13.3-10.7-24-24-24h-16c-13.3 0-24 10.7-24 24v145.8c0 9.1 5.2 17.5 13.3 21.3l109.5 66.6c10.8 6.6 24.6 4.4 31.2-6.3l8.9-14.2c6.5-10.8 4.4-24.6-6.4-31.1z"/></svg></span><h3>Manutenção Periódica</h3><p>Mantenha seu terreno sempre limpo com nossos planos de manutenção.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- === About Section === -->
-        <section id="about">
+        <!-- About Section -->
+        <section id="about" class="about section-padding section-bg-gray">
             <div class="container">
-                 <div class="about-content">
-                     <div class="about-image">
-                        <img src="https://picsum.photos/seed/maximoequipe2/500/380" alt="Equipe Máximo uniformizada e com equipamentos" loading="lazy" decoding="async" width="500" height="380">
-                    </div>
+                <h2 class="text-center">Por que escolher a Máximo?</h2>
+                <div class="about-content">
                     <div class="about-text">
-                        <h2>Sobre a Máximo</h2>
-                        <p>Somos apaixonados pelo que fazemos. Com anos de experiência servindo Amparo e região, a Máximo combina conhecimento técnico com equipamentos de ponta para oferecer soluções eficientes em podas e limpeza de terrenos. Nossa missão é entregar resultados impecáveis com segurança e responsabilidade ambiental.</p>
-                        <p>Com uma equipe treinada e focada na satisfação do cliente, garantimos um serviço ágil, organizado e que atende às suas expectativas. Transparência e profissionalismo são a base do nosso trabalho.</p>
-                        <a href="#contact" class="btn btn-secondary">Converse com um Especialista</a>
+                        <h3>Experiência e Confiabilidade</h3>
+                        <p>Com anos de experiência no mercado, oferecemos um serviço de alta qualidade, focado na satisfação total do cliente. Atendemos <strong>Amparo-SP e toda a região</strong>, utilizando equipamentos adequados e seguindo todas as normas de segurança.</p>
+                        <h3>Compromisso com o Meio Ambiente</h3>
+                        <p>Realizamos o descarte correto dos resíduos e buscamos práticas sustentáveis em nossos serviços de limpeza e roçagem.</p>
+                        <h3>Atendimento Personalizado</h3>
+                        <p>Entendemos a necessidade de cada cliente e oferecemos soluções personalizadas para cada tipo de terreno e vegetação em nossa área de atuação.</p>
+                        <a href="https://wa.me/5519981042781?text=Ol%C3%A1%21+Gostaria+de+solicitar+uma+avalia%C3%A7%C3%A3o." target="_blank" class="cta-button" style="background-color: var(--primary-dark-green); color: var(--neutral-white); margin-top: 1rem;">Solicite uma Avaliação</a>
+                    </div>
+                    <div class="about-image">
+                        <!-- Otimização: loading="lazy" -->
+                        <img src="https://github.com/Aracebe/maximopodas/blob/main/photo01.jpg?raw=true" alt="Equipe Máximo realizando serviço de limpeza de terreno com equipamentos profissionais" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-         <!-- === Why Choose Us Section === -->
-        <section id="why-choose-us">
+         <!-- Gallery Section -->
+        <section id="gallery" class="gallery section-padding">
             <div class="container">
-                <h2>Nossos Diferenciais</h2>
-                 <p class="section-subtitle">Entenda por que somos a escolha certa para o seu projeto.</p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="icon">⭐</div>
-                        <h3>Qualificação</h3>
-                        <p>Equipe experiente e treinada nas melhores práticas do setor.</p>
-                    </div>
-                    <div class="feature-item">
-                         <div class="icon">🛡️</div>
-                        <h3>Segurança Total</h3>
-                        <p>Equipamentos de Proteção Individual (EPIs) e procedimentos rigorosos.</p>
-                    </div>
-                    <div class="feature-item">
-                         <div class="icon">⚙️</div>
-                        <h3>Equipamentos Modernos</h3>
-                        <p>Tecnologia de ponta para maior eficiência e precisão nos cortes.</p>
-                    </div>
-                    <div class="feature-item">
-                         <div class="icon">🌿</div>
-                        <h3>Compromisso Ambiental</h3>
-                        <p>Descarte correto de resíduos e respeito às normas ambientais.</p>
-                    </div>
-                     <div class="feature-item">
-                         <div class="icon">💲</div>
-                        <h3>Orçamento Detalhado</h3>
-                        <p>Preços justos e transparentes, sem surpresas no final do serviço.</p>
-                    </div>
-                     <div class="feature-item">
-                         <div class="icon">👍</div>
-                        <h3>Foco no Cliente</h3>
-                        <p>Atendimento personalizado e garantia de satisfação com o resultado.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- === Gallery Section === -->
-        <section id="gallery">
-            <div class="container">
-                <h2>Trabalhos Realizados</h2>
-                <p class="section-subtitle">Veja na prática a qualidade e o cuidado que dedicamos a cada serviço.</p>
+                <h2 class="text-center">Veja Nosso Trabalho</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria7/400/300" alt="Poda de galhos altos em andamento" loading="lazy" decoding="async" width="400" height="300" data-index="0"></div>
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria8/400/300" alt="Detalhe de terreno com mato alto antes da limpeza" loading="lazy" decoding="async" width="400" height="300" data-index="1"></div>
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria9/400/300" alt="Vista panorâmica de terreno após limpeza completa" loading="lazy" decoding="async" width="400" height="300" data-index="2"></div>
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria10/400/300" alt="Close-up de corte preciso em galho de árvore" loading="lazy" decoding="async" width="400" height="300" data-index="3"></div>
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria11/400/300" alt="Profissional utilizando equipamento de segurança durante poda" loading="lazy" decoding="async" width="400" height="300" data-index="4"></div>
-                    <div class="gallery-item"><img src="https://picsum.photos/seed/galeria12/400/300" alt="Paisagem com árvores e terreno limpo após serviço" loading="lazy" decoding="async" width="400" height="300" data-index="5"></div>
-                    <!-- Adicione mais imagens aqui se necessário -->
+                    <!-- Otimização: loading="lazy" -->
+                    <div class="gallery-item"><a href="https://picsum.photos/800/800?random=2" data-lightbox="gallery-group"><img src="https://picsum.photos/400/400?random=2" alt="Terreno com mato alto antes da limpeza e poda" loading="lazy"></a></div>
+                    <div class="gallery-item"><a href="https://picsum.photos/800/800?random=3" data-lightbox="gallery-group"><img src="https://picsum.photos/400/400?random=3" alt="Terreno limpo e capinado após serviço de poda e limpeza" loading="lazy"></a></div>
+                    <div class="gallery-item"><a href="https://picsum.photos/800/800?random=4" data-lightbox="gallery-group"><img src="https://picsum.photos/400/400?random=4" alt="Detalhe da remoção de vegetação densa durante limpeza" loading="lazy"></a></div>
+                    <div class="gallery-item"><a href="https://picsum.photos/800/800?random=6" data-lightbox="gallery-group"><img src="https://picsum.photos/400/400?random=6" alt="Serviço de roçagem profissional em Amparo" loading="lazy"></a></div>
                 </div>
             </div>
         </section>
 
-        <!-- === Contact Section === -->
-        <section id="contact">
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding text-center">
             <div class="container">
-                <h2>Entre em Contato</h2>
-                <p class="section-subtitle">Estamos prontos para transformar seu espaço. Preencha o formulário ou utilize nossos canais diretos.</p>
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <h3>Envie sua Mensagem</h3>
-                        <!-- FORMULÁRIO CONFIGURADO PARA FORMSUBMIT.CO -->
-                        <form id="contact-form" action="https://formsubmit.co/euterpeanhum@gmail.com" method="POST">
-                            <!-- Configurações Opcionais do FormSubmit -->
-                            <input type="hidden" name="_subject" value="Novo Contato - Site Máximo Podas!"> <!-- Assunto do E-mail -->
-                            <input type="hidden" name="_captcha" value="false"> <!-- Desativar CAPTCHA (RECOMENDADO ATIVAR DEPOIS) -->
-                            <input type="hidden" name="_next" value="URL_DA_SUA_PAGINA_DE_OBRIGADO.html"> <!-- Redireciona após envio (ex: thankyou.html) -->
-                            <input type="hidden" name="_template" value="table"> <!-- Formata o e-mail recebido como tabela -->
-
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="name">Nome Completo:</label>
-                                    <input type="text" id="name" name="Nome" required placeholder="Seu nome aqui"> <!-- Mudado name="name" para name="Nome" -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">E-mail:</label>
-                                    <input type="email" id="email" name="Email" required placeholder="seu.email@exemplo.com"> <!-- Mudado name="email" para name="Email" -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Telefone / WhatsApp:</label>
-                                    <input type="tel" id="phone" name="Telefone" required placeholder="(XX) 9XXXX-XXXX"> <!-- Mudado name="phone" para name="Telefone" -->
-                                </div>
-                                 <div class="form-group">
-                                    <label for="service">Serviço Desejado:</label>
-                                    <select id="service" name="Serviço" required> <!-- Mudado name="service" para name="Serviço" -->
-                                        <option value="" disabled selected>Selecione o serviço...</option>
-                                        <option value="poda">Poda de Árvores</option>
-                                        <option value="limpeza">Limpeza de Terreno</option>
-                                        <option value="remocao">Remoção/Supressão de Árvore</option>
-                                        <option value="orcamento">Orçamento Geral</option>
-                                        <option value="outro">Outro (descreva abaixo)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="message">Mensagem:</label>
-                                <textarea id="message" name="Mensagem" rows="5" required placeholder="Descreva brevemente sua necessidade ou dúvida..."></textarea> <!-- Mudado name="message" para name="Mensagem" -->
-                            </div>
-                            <button type="submit" class="btn btn-secondary">Enviar Solicitação Agora</button>
-
-                            <!-- As mensagens de sucesso/erro do JS foram removidas, pois o FormSubmit redireciona -->
-                            <!-- <div id="form-success-message" class="form-message success">...</div> -->
-                            <!-- <div id="form-error-message" class="form-message error">...</div> -->
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <h3>Informações Diretas</h3>
-                        <p>Prefere um contato direto? Veja nossos canais:</p>
-                        <p>
-                            <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg>
-                            <span><a href="tel:+5500999998888">(00) 99999-8888</a> (WhatsApp)</span> <!-- AJUSTAR TELEFONE REAL -->
-                        </p>
-                         <p>
-                            <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
-                            <span><a href="mailto:euterpeanhum@gmail.com">euterpeanhum@gmail.com</a></span> <!-- EMAIL ATUALIZADO -->
-                        </p>
-                         <p>
-                            <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg>
-                           <span>Atendemos <strong>Amparo e Região</strong></span>
-                        </p>
-                         <p>
-                            <svg class="icon-contact" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path></svg>
-                            <span><strong>Horário:</strong> Seg-Sex: 8h-18h | Sáb: 8h-12h</span>
-                        </p>
-                    </div>
-                </div>
+                <h2>Entre em Contato e Peça seu Orçamento!</h2>
+                <p>Envie uma mensagem pelo WhatsApp. Estamos prontos para atender você em Amparo-SP e região.</p>
+                <a href="https://wa.me/5519981042781?text=Ol%C3%A1%21+Gostaria+de+um+or%C3%A7amento+para+poda+e+limpeza+de+terreno." target="_blank" class="whatsapp-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-27.2l-4.7-2.8-69.8 18.3L72 359.2l-2.8-4.8c-19.2-33.1-29.6-71.4-29.6-111 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    <span>WhatsApp (19) 98104-2781</span>
+                </a>
             </div>
         </section>
     </main>
 
-    <!-- === Footer === -->
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© <span id="current-year"></span> Máximo Podas e Limpeza. Todos os direitos reservados.</p>
-            <p>Orgulhosamente servindo Amparo e Região.</p>
+            <div class="footer-content">
+                <a href="#home" class="footer-logo"><img src="https://github.com/Aracebe/maximopodas/blob/main/symbol.png?raw=true" alt="Símbolo da Máximo Poda e Limpeza"></a>
+                <!-- Texto do rodapé atualizado -->
+                <p>Máximo - Poda e Limpeza de Terrenos<br>Serviços especializados em Amparo-SP e região.</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/maximopodas" target="_blank" aria-label="Visite nosso Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9 26.3 26.2 58 34.4 93.9 36.2 37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                    <a href="https://wa.me/5519981042781?text=Ol%C3%A1%21+Vi+o+site+e+gostaria+de+mais+informa%C3%A7%C3%B5es." target="_blank" aria-label="Entre em contato pelo WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-67.6-9.5-97.2-27.2l-4.7-2.8-69.8 18.3L72 359.2l-2.8-4.8c-19.2-33.1-29.6-71.4-29.6-111 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+                </div>
+                <p class="copyright">© <span id="year"></span> Máximo Poda e Limpeza de Terrenos. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- === Lightbox HTML Structure (Hidden) === -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close" id="lightbox-close">×</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <a class="lightbox-prev" id="lightbox-prev">❮</a>
-        <a class="lightbox-next" id="lightbox-next">❯</a>
-        <div id="lightbox-caption"></div>
+    <!-- Estrutura HTML do Lightbox -->
+    <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-labelledby="lightbox-image-desc">
+        <div class="lightbox-container">
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <p id="lightbox-image-desc" class="visually-hidden">Imagem ampliada da galeria</p>
+            <button class="lightbox-close" id="lightbox-close" aria-label="Fechar imagem ampliada">×</button>
+        </div>
     </div>
 
-    <!-- Link para o arquivo JavaScript externo (com defer) -->
+    <!-- Link para o arquivo JavaScript externo (coloque antes de </body>) -->
     <script src="script.js" defer></script>
 
 </body>

@@ -1,144 +1,66 @@
-// Remover a lógica de simulação de envio de formulário.
-// O restante do script (menu mobile, lightbox, ano do footer) permanece o mesmo.
+// Set current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // === Mobile Menu Logic ===
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const body = document.body;
-
-    if (menuToggle && navLinks) {
-        const navLinkItems = navLinks.querySelectorAll('.nav-link');
-
-        const closeMenu = () => {
-          if (navLinks.classList.contains('active')) {
-            menuToggle.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            navLinks.classList.remove('active');
-            body.style.overflow = '';
-          }
-        };
-
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isActive = navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active', isActive);
-            menuToggle.setAttribute('aria-expanded', isActive);
-            body.style.overflow = isActive ? 'hidden' : '';
-        });
-
-        navLinkItems.forEach(link => {
-          link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('click', (event) => {
-            if (navLinks.classList.contains('active') && !navLinks.contains(event.target) && menuToggle && !menuToggle.contains(event.target)) {
-                closeMenu();
+// --- Mobile Menu Toggle Functionality ---
+const menuToggle = document.getElementById('menu-toggle');
+const mainNav = document.getElementById('main-nav');
+const navLinks = mainNav.querySelectorAll('a');
+if (menuToggle && mainNav) {
+     menuToggle.addEventListener('click', () => {
+        const isActive = mainNav.classList.toggle('is-active');
+        menuToggle.classList.toggle('is-active');
+        menuToggle.setAttribute('aria-expanded', isActive);
+        menuToggle.setAttribute('aria-label', isActive ? 'Fechar menu' : 'Abrir menu');
+    });
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mainNav.classList.contains('is-active')) {
+                 mainNav.classList.remove('is-active');
+                 menuToggle.classList.remove('is-active');
+                 menuToggle.setAttribute('aria-expanded', 'false');
+                 menuToggle.setAttribute('aria-label', 'Abrir menu');
             }
         });
+    });
+ }
 
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-    } else {
-        console.error("Mobile menu elements not found!");
-    }
+// --- Lightbox Functionality (Desktop Only) ---
+const lightboxOverlay = document.getElementById('lightbox-overlay');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxCloseBtn = document.getElementById('lightbox-close');
+const galleryLinks = document.querySelectorAll('a[data-lightbox="gallery-group"]');
+const bodyElement = document.body;
 
-    // === Footer Year Update ===
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-
-    // === Lightbox Logic ===
-    const galleryImages = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxClose = document.getElementById('lightbox-close');
-    const lightboxPrev = document.getElementById('lightbox-prev');
-    const lightboxNext = document.getElementById('lightbox-next');
-
-    if (lightbox && lightboxImg && lightboxCaption && lightboxClose && lightboxPrev && lightboxNext && galleryImages.length > 0) {
-        let currentImageIndex;
-        const imagesData = Array.from(galleryImages).map(img => ({ src: img.src, alt: img.alt }));
-
-        const openLightbox = (index) => {
-            if (index < 0 || index >= imagesData.length) return;
-            currentImageIndex = index;
-            lightboxImg.src = imagesData[currentImageIndex].src;
-            lightboxCaption.textContent = imagesData[currentImageIndex].alt;
-            lightbox.classList.add('active');
-            body.style.overflow = 'hidden';
-            updateLightboxNav();
-        };
-
-        const closeLightbox = () => {
-            lightbox.classList.remove('active');
-            body.style.overflow = '';
-        };
-
-        const showPrevImage = () => {
-            openLightbox((currentImageIndex - 1 + imagesData.length) % imagesData.length);
-        };
-
-        const showNextImage = () => {
-            openLightbox((currentImageIndex + 1) % imagesData.length);
-        };
-
-         const updateLightboxNav = () => {
-             lightboxPrev.style.display = imagesData.length > 1 ? 'block' : 'none';
-             lightboxNext.style.display = imagesData.length > 1 ? 'block' : 'none';
-         };
-
-        galleryImages.forEach((img, index) => {
-            img.dataset.index = index;
-            img.addEventListener('click', () => {
-                openLightbox(index);
-            });
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', showPrevImage);
-        lightboxNext.addEventListener('click', showNextImage);
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (lightbox.classList.contains('active')) {
-                 if (event.key === 'Escape') {
-                    closeLightbox();
-                } else if (event.key === 'ArrowLeft' && imagesData.length > 1) {
-                    showPrevImage();
-                } else if (event.key === 'ArrowRight' && imagesData.length > 1) {
-                    showNextImage();
-                }
-            }
-        });
-    } else {
-         // Silently fail or log if lightbox elements are missing or no gallery images found
-         if (!lightbox || !lightboxImg || !lightboxCaption || !lightboxClose || !lightboxPrev || !lightboxNext) {
-            console.error("Lightbox elements not found!");
+function openLightbox(event) {
+    if (window.innerWidth < 769) { return; } // Não abrir lightbox em mobile/tablet
+    event.preventDefault();
+    const imgSrc = event.currentTarget.getAttribute('href');
+    const imgAlt = event.currentTarget.querySelector('img')?.getAttribute('alt') || 'Imagem da galeria';
+    lightboxImage.setAttribute('src', imgSrc);
+    lightboxImage.setAttribute('alt', `Imagem ampliada: ${imgAlt}`);
+    lightboxOverlay.classList.add('is-active');
+    bodyElement.classList.add('lightbox-open'); // Impede scroll do body
+    lightboxCloseBtn.focus(); // Foco no botão de fechar
+}
+function closeLightbox() {
+    lightboxOverlay.classList.remove('is-active');
+    bodyElement.classList.remove('lightbox-open'); // Libera scroll do body
+    // Opcional: devolver o foco para o link que abriu o lightbox
+    // (requer guardar a referência do link clicado)
+}
+if(lightboxOverlay && lightboxImage && lightboxCloseBtn && galleryLinks.length > 0) {
+     galleryLinks.forEach(link => { link.addEventListener('click', openLightbox); });
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+    // Fechar clicando fora da imagem
+    lightboxOverlay.addEventListener('click', (event) => {
+         if (event.target === lightboxOverlay) {
+             closeLightbox();
          }
-         // console.log("No gallery images found for lightbox.");
-    }
-
-
-    // === Form Feedback Simulation Logic REMOVED ===
-    // const contactForm = document.getElementById('contact-form');
-    // const successMessage = document.getElementById('form-success-message');
-    // const errorMessage = document.getElementById('form-error-message');
-    // if (contactForm) {
-    //     contactForm.addEventListener('submit', (event) => {
-    //         // event.preventDefault(); // REMOVIDO - Deixar o form ser enviado para o FormSubmit
-    //         // Lógica de simulação removida
-    //     });
-    // }
-
-}); // End of DOMContentLoaded
+    });
+    // Fechar com a tecla Esc
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightboxOverlay.classList.contains('is-active')) {
+            closeLightbox();
+        }
+    });
+ }
