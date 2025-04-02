@@ -1,3 +1,32 @@
+/* Adicionar NO TOPO do style.css - Fontes Auto-hospedadas */
+/* poppins-regular - latin */
+@font-face {
+  font-display: swap; /* Essencial para performance */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  /* Usa ?raw=true para obter o arquivo direto do GitHub */
+  src: url('https://github.com/Aracebe/maximopodas/blob/fonts/poppins-v22-latin-regular.woff2?raw=true') format('woff2');
+}
+/* poppins-600 - latin */
+@font-face {
+  font-display: swap; /* Essencial para performance */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  /* Usa ?raw=true para obter o arquivo direto do GitHub */
+  src: url('https://github.com/Aracebe/maximopodas/blob/fonts/poppins-v22-latin-600.woff2?raw=true') format('woff2');
+}
+/* poppins-700 - latin */
+@font-face {
+  font-display: swap; /* Essencial para performance */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  /* Usa ?raw=true para obter o arquivo direto do GitHub */
+  src: url('https://github.com/Aracebe/maximopodas/blob/fonts/poppins-v22-latin-700.woff2?raw=true') format('woff2');
+}
+
 /* --- Base Reset & Variables --- */
 :root {
     --primary-dark-green: #36594A;
@@ -7,6 +36,7 @@
     --neutral-medium-gray: #e9ecef;
     --neutral-dark-gray: #343a40;
     --text-color: #333;
+    /* A definição da família continua usando 'Poppins' */
     --font-family: 'Poppins', sans-serif;
     --container-width: 1140px;
     --border-radius: 8px;
@@ -61,10 +91,9 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
 
 /* --- Hero Section --- */
 .hero {
-    /* MUDANÇA: URL da imagem atualizada */
-    background: linear-gradient(rgba(54, 89, 74, 0.8), rgba(54, 89, 74, 0.8)), url('https://raw.githubusercontent.com/Aracebe/maximopodas/refs/heads/main/photo01.jpg') no-repeat center center/cover;
+    /* ATUALIZADO: URL da imagem para WebP com ?raw=true */
+    background: linear-gradient(rgba(54, 89, 74, 0.8), rgba(54, 89, 74, 0.8)), url('https://github.com/Aracebe/maximopodas/blob/main/photo01.webp?raw=true') no-repeat center center/cover;
     color: var(--neutral-white);
-    /* Altura aumentada em 15% (conforme solicitado anteriormente) */
     padding: 106px 0 106px;
     text-align: center; position: relative; overflow: hidden;
 }
@@ -80,13 +109,12 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
 .service-item { background-color: var(--neutral-white); padding: 30px; border-radius: var(--border-radius); text-align: center; box-shadow: var(--shadow); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; border-left: 5px solid var(--primary-light-green); display: flex; flex-direction: column; justify-content: flex-start; }
 .service-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); }
 .service-icon { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; min-height: 50px; border-radius: 50%; background-color: var(--primary-light-green); color: var(--primary-dark-green); margin-bottom: 1.5rem; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; align-self: center; }
-/* CORREÇÃO ÍCONES: Remover max-height para evitar distorção */
+/* Ícones SVG mantêm a correção anterior (sem max-height) */
 .service-icon svg {
     fill: currentColor;
-    max-width: 60%; /* Limita a largura máxima do SVG */
-    height: auto;   /* Calcula a altura automaticamente para MANTER a proporção original (do viewBox) */
+    max-width: 60%;
+    height: auto;
     display: block;
-    /* max-height: 60%; FOI REMOVIDO para não causar conflito */
 }
 .service-item:hover .service-icon { background-color: var(--primary-dark-green); color: var(--primary-light-green); }
 .service-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--primary-dark-green); }
@@ -101,9 +129,9 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
 .testimonials { /* Herda padding da section */ }
 .testimonial-slider-container {
     position: relative;
-    overflow: hidden; /* Crucial */
+    overflow: hidden;
     width: 100%;
-    max-width: 800px; /* Limite no desktop */
+    max-width: 800px;
     margin: 2rem auto 0;
     background-color: var(--neutral-light-gray);
     border-radius: var(--border-radius);
@@ -116,7 +144,7 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
     min-width: 100%;
     flex-shrink: 0;
     box-sizing: border-box;
-    padding: 40px 50px; /* Espaço generoso para o card interno */
+    padding: 40px 50px;
 }
 .testimonial-item {
     background-color: var(--neutral-white);
@@ -193,11 +221,9 @@ footer .copyright { font-size: 0.9rem; margin-top: 15px; color: #aaa; }
     .main-nav a:hover, .main-nav a:focus { background-color: var(--neutral-light-gray); }
     .container { max-width: 960px; }
     h2 { font-size: 2rem; }
-    /* Altura Banner Tablet aumentada em 15% (conforme solicitado anteriormente) */
     .hero { padding: 79px 0 79px; }
     .hero h1 { font-size: 1.6rem; }
-    .gallery-item a { cursor: default; } /* Remove cursor pointer on mobile for lightbox */
-    /* Slider Tablet */
+    .gallery-item a { cursor: default; }
     .testimonial-slider-container { max-width: 90%; }
     .testimonial-slide { padding: 30px 40px; }
     .testimonial-item { padding: 25px; }
@@ -210,7 +236,6 @@ footer .copyright { font-size: 0.9rem; margin-top: 15px; color: #aaa; }
      .container { max-width: 720px; }
      .section-padding { padding: 40px 0; }
      h2 { font-size: 1.8rem; }
-     /* Altura Banner Mobile aumentada em 15% (conforme solicitado anteriormente) */
      .hero { padding: 67px 0 67px; }
      .hero h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
      .hero p { font-size: 1rem; }
@@ -218,15 +243,13 @@ footer .copyright { font-size: 0.9rem; margin-top: 15px; color: #aaa; }
      .services-grid { grid-template-columns: 1fr; gap: 20px; }
      .service-item { padding: 20px 25px; margin-bottom: 15px; }
      .service-item h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
-     .service-icon { width: 45px; height: 45px; min-height: 45px; /* Manter tamanho do círculo */ line-height: 45px; font-size: 1.3rem; margin-bottom: 1rem; }
-     /* Ícones Mobile: Ajustar max-width/height se necessário, herda a regra principal */
+     .service-icon { width: 45px; height: 45px; min-height: 45px; line-height: 45px; font-size: 1.3rem; margin-bottom: 1rem; }
      .about-content { grid-template-columns: 1fr; text-align: center; gap: 25px; }
      .about-image { margin-bottom: 20px; order: -1; }
      .about-image img { aspect-ratio: 16 / 9; }
      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
      .footer-content { gap: 15px; }
      .social-icons svg { width: 24px; height: 24px; }
-     /* Slider Mobile */
      .testimonial-slider-container { max-width: 100%; border-radius: 0; }
      .testimonial-slide { padding: 30px 20px; }
      .testimonial-item { padding: 20px; }
@@ -251,13 +274,11 @@ footer .copyright { font-size: 0.9rem; margin-top: 15px; color: #aaa; }
     .site-logo img { max-height: 40px; }
     .container { padding-left: 10px; padding-right: 10px; }
     h2 { font-size: 1.6rem; margin-bottom: 1.5rem; }
-    /* Altura Banner Small Mobile aumentada em 15% (conforme solicitado anteriormente) */
     .hero { padding: 53px 0 53px; }
     .hero h1 { font-size: 1.2rem; }
     .hero p { font-size: 0.95rem; margin-bottom: 1.5rem; }
     .cta-button, .whatsapp-button { padding: 10px 20px; font-size: 0.9rem; width: 90%; max-width: 300px; }
     .whatsapp-button { margin-top: 1rem; }
-     /* Slider Small Mobile */
     .testimonial-slide { padding: 25px 15px; }
     .testimonial-item { padding: 15px; }
     .testimonial-item blockquote { margin-bottom: 10px; }
