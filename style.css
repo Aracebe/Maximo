@@ -80,13 +80,13 @@ a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible { outline: 3
 .service-item { background-color: var(--neutral-white); padding: 30px; border-radius: var(--border-radius); text-align: center; box-shadow: var(--shadow); transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; border-left: 5px solid var(--primary-light-green); display: flex; flex-direction: column; justify-content: flex-start; }
 .service-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); }
 .service-icon { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; min-height: 50px; border-radius: 50%; background-color: var(--primary-light-green); color: var(--primary-dark-green); margin-bottom: 1.5rem; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; align-self: center; }
-/* CORREÇÃO ÍCONES: Usar max-width/max-height para manter proporção */
+/* CORREÇÃO ÍCONES: Remover max-height para evitar distorção */
 .service-icon svg {
     fill: currentColor;
-    max-width: 60%; /* Ajuste conforme necessário */
-    max-height: 60%; /* Ajuste conforme necessário */
-    height: auto; /* Garante que a altura se ajuste à largura/max-width */
-    display: block; /* Ajuda em alguns casos de alinhamento */
+    max-width: 60%; /* Limita a largura máxima do SVG */
+    height: auto;   /* Calcula a altura automaticamente para MANTER a proporção original (do viewBox) */
+    display: block;
+    /* max-height: 60%; FOI REMOVIDO para não causar conflito */
 }
 .service-item:hover .service-icon { background-color: var(--primary-dark-green); color: var(--primary-light-green); }
 .service-item h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--primary-dark-green); }
